@@ -7,7 +7,10 @@ seaborn
 scikit-learn
 pdpbox==0.2.0
 fancyimpute
+
 google-api-python-client
 konlpy
 pyldavis
 wordcloud
+folium
+pyproj
