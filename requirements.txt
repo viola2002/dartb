@@ -14,3 +14,4 @@ pyldavis
 wordcloud
 folium
 pyproj
+xmltodict
