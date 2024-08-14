@@ -219,7 +219,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # additional
-toy_project/2024_SS/data
+toy_project/2024_Spring/data
+study_group/2024_SV_SQL/data
 contest/2024ecothon/data
 contest/2024ecothon/API documents
 contest/2024ecothon/other
