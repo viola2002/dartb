@@ -23,6 +23,26 @@
     - 구글에서 인프라 관리
 
 # 1-2. BigQuery 환경 설정
+- Google Cloud 설정 - 체험판 시작
+- Google Cloud 설정 - 프로젝트 선택
+- Google Cloud 설정 - 프로젝트 ID 확인
+- BigQuery 설정
+- BigQuery 메인화면
+    - 대부분 BigQuery Studio에서 진행
+- BigQuery의 환경 구성 요소
+    1. 프로젝트(Project)
+        - 하나의 큰 건물
+        - 하나의 프로젝트에 여러 데이터셋이 존재할 수 있음
+    1. 데이터셋(Dataset)
+        - 건물(프로젝트)에 있는 창고
+        - 하나의 데이터셋에 다양한 테이블이 존재할 수 있음
+    1. 테이블(Table)
+        - 창고(데이터셋)에 있는 선반
+        - 행과 열로 이루어진 데이터들 저장
+- Google Cloud 설정 - 데이터셋 생성
+- Google Cloud 설정 - 테이블 생성(pokemon, trainer, trainer_pokemon, battle)
+- Google Cloud 설정 - 생성된 테이블 확인
+- Google Cloud 설정 - 쿼리 실행해보기
 
 # 2-1. 데이터 활용 Overview
 
