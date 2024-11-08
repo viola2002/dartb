@@ -5,8 +5,6 @@ matplotlib
 koreanize_matplotlib
 seaborn
 scikit-learn
-pdpbox==0.2.0
-fancyimpute
 
 google-api-python-client
 konlpy
@@ -15,6 +13,3 @@ wordcloud
 folium
 pyproj
 xmltodict
-
-backtrader
-yfinance
