@@ -1,0 +1,12 @@
+pandas
+numpy<1.25,>=1.21
+matplotlib
+koreanize_matplotlib
+seaborn
+scikit-learn
+
+backtrader
+yfinance
+tensorflow
+blosc2
+cython
