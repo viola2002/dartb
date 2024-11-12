@@ -72,14 +72,14 @@
 
 ## 문제
 
-오늘은 별도의 문제가 없습니다. 
+오늘은 별도의 문제가 없습니다.
 
-![1](../study/img/3rd%20study/1688556627184.png)
+![1](https://github.com/yousrchive/BUSINESS-INTELLIGENCE-TABLEAU/blob/main/study/img/3rd%20study/1688556627184.png)
 
-![1](../study/img/3rd%20study/Global%20SuperStore%20Dashboard.png)
+![1](https://github.com/yousrchive/BUSINESS-INTELLIGENCE-TABLEAU/blob/main/study/img/3rd%20study/Global%20SuperStore%20Dashboard.png)
 
-![2](../study/img/3rd%20study/images.jpeg)
-![2](../study/img/3rd%20study/maxresdefault.jpg)
+![2](https://github.com/yousrchive/BUSINESS-INTELLIGENCE-TABLEAU/blob/main/study/img/3rd%20study/images.jpeg)
+![2](https://github.com/yousrchive/BUSINESS-INTELLIGENCE-TABLEAU/blob/main/study/img/3rd%20study/maxresdefault.jpg)
 
 여러 대시보드를 참고하시어, superstore 데이터를 사용해 나만의 대시보드를 제작해주세요.
 
@@ -87,3 +87,8 @@
 
 어떤 부분에 가중을 두었는지, 어떤 사용자 편의성을 고려하였는지에 대한 설명이 필요합니다.
 
+```
+```
+<p align="center">
+<img src="">
+</p>

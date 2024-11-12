@@ -65,7 +65,7 @@ Tableau가 읽기 어려운 데이터인 경우
 <!-- 캡쳐 파일을 첨부해주세요! 캡쳐하는 법은 깃허브 강의 영상에 있습니다 (폴더 생성 후 폴더 안에 이미지 넣기 + 불러오기) -->
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-09-15%20203906.png">
+<img src="screenshots/스크린샷 2024-09-15 203906.png">
 </p>
 
 <!-- 문제와 문제 풀이가 모두 위 DArt-B Sample Store.xls 파일을 기반으로 제시되므로, 해당 엑셀파일을 사용하셔야 혼동이 없습니다. -->
@@ -142,7 +142,7 @@ but 데이터양이 많아지면 처리 속도 및 성능이 저하될 수 있�
 ```
 <!-- 캡쳐 이미지를 첨부해주세요 -->
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-09-15%20212710.png">
+<img src="screenshots/스크린샷 2024-09-15 212710.png">
 </p>
 
 ## 6강. 데이터결합 혼합
@@ -264,7 +264,7 @@ but 데이터양이 많아지면 처리 속도 및 성능이 저하될 수 있�
 4월 파일 연결 -> 우클릭 -> 유니온으로 변환 -> 와일드카드(자동) -> 일치 패턴 -> "CARD_SUBWAY*"
 ```
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-09-16%20144436.png">
+<img src="screenshots/스크린샷 2024-09-16 144436.png">
 </p>
 
 ## 문제 2.
