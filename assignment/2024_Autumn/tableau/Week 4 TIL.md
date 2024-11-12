@@ -475,7 +475,7 @@
     4-5. 오른쪽 색상 범례 더블클릭 후 색상 수정
 ```
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-10-08%20220425.png">
+<img src="screenshots/스크린샷 2024-10-08 220425.png">
 </p>
 
 ## 문제 2.

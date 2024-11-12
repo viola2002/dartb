@@ -113,7 +113,7 @@ FROM
     예를 들어, 올림픽 등의 대회에서 공동 순위를 부여하는 경우, 중간 순위가 비워진 상태를 유지하는 것이 의미 있을 때 사용할 수 있다.
     ```
     <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112247.png">
+    <img src="screenshots/스크린샷 2024-11-12 112247.png">
     </p>
 
 - **DENSE_RANK()**
@@ -123,7 +123,7 @@ FROM
     고객 입장에서는 연속된 순위가 비교하기 쉽고 일관되어 보이기 때문이다.
     ```
     <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112328.png">
+    <img src="screenshots/스크린샷 2024-11-12 112328.png">
     </p>
 
 - **ROW_NUMBER()**
@@ -132,5 +132,5 @@ FROM
     고유한 순서를 보장해야 할 때, 즉 조회수 상위 10개를 선택하고 싶지만 같은 조회수를 가진 영상이 여러 개 있는 경우 등을 예시로 들 수 있다.
     ```
     <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112409.png">
+    <img src="screenshots/스크린샷 2024-11-12 112409.png">
     </p>

@@ -229,7 +229,7 @@ e.g. 각 제품 범주의 매출과 전체 하위 범주의 매출 차이를 계
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-05%20173948.png">
+<img src="screenshots/스크린샷 2024-11-05 173948.png">
 </p>
 
 ## 43. 매개변수 실습
@@ -381,7 +381,7 @@ e.g. 각 제품 범주의 매출과 전체 하위 범주의 매출 차이를 계
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-06%20013131.png">
+<img src="screenshots/스크린샷 2024-11-06 013131.png">
 </p>
 
 ## 문제 2.
@@ -397,5 +397,5 @@ e.g. 각 제품 범주의 매출과 전체 하위 범주의 매출 차이를 계
 <!-- 예시 사진은 지워주세요-->
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-05%20235738.png">
+<img src="screenshots/스크린샷 2024-11-05 235738.png">
 </p>

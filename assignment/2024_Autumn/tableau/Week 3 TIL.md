@@ -399,7 +399,7 @@
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-10-01%20211221.png">
+<img src="screenshots/스크린샷 2024-10-01 211221.png">
 </p>
 
 ## 문제 2.
@@ -426,7 +426,7 @@
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-10-01%20213902.png">
+<img src="screenshots/스크린샷 2024-10-01 213902.png">
 </p>
 
 ```js
@@ -446,5 +446,5 @@
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-10-01%20214457.png">
+<img src="screenshots/스크린샷 2024-10-01 214457.png">
 </p>

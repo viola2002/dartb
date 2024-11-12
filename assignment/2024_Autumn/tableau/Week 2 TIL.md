@@ -432,7 +432,7 @@
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202024-09-24%20235558.png">
+<img src="screenshots/화면 캡처 2024-09-24 235558.png">
 </p>
 
 ```
@@ -463,7 +463,7 @@ https://github.com/yousrchive/BUSINESS-INTELLIGENCE-TABLEAU/blob/main/study/img/
 ```
 
 <p align="center">
-<img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/tableau/screenshots/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202024-09-24%20165554.png">
+<img src="screenshots/화면 캡처 2024-09-24 165554.png">
 </p>
 
 ```
