@@ -4,21 +4,21 @@
 
 아래는 틀린 풀이입니다.
 
-1. 틀린 코드 이유 분석(정답 코드 참고)
+## 1. 틀린 코드 이유 분석(정답 코드 참고)
 
-**틀린 코드**
+- *틀린 코드*
 
-```sql
-SELECT *
-FROM (SELECT FOOD_TYPE, REST_ID, REST_NAME, MAX(FAVORITES) AS FAVORITES
-FROM REST_INFO
-GROUP BY FOOD_TYPE
-ORDER BY FOOD_TYPE DESC
-```
+    ```sql
+    SELECT *
+    FROM (SELECT FOOD_TYPE, REST_ID, REST_NAME, MAX(FAVORITES) AS FAVORITES
+    FROM REST_INFO
+    GROUP BY FOOD_TYPE
+    ORDER BY FOOD_TYPE DESC);
+    ```
 
 이 코드가 틀린 이유를 찾아내고, 정답 코드와 비교해 정리해주세요.
 
-- 정답 코드
+- *정답 코드*
 
     ```sql
     SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
@@ -31,12 +31,20 @@ ORDER BY FOOD_TYPE DESC
     ORDER BY FOOD_TYPE DESC;
     ```
 
+```
+MAX 함수는 SQL에서 특정 그룹 내에서 최댓값을 반환하는 집계 함수이므로 그룹 내에서만 적용이 가능하다.
+즉, 다른 컬럼과 함께 사용할 때는 문제가 발생하여 오답으로 처리된다.
+그렇다고 FROM절 서브 쿼리에서 다른 컬럼을 제외한다면, SELECT절에서 원본 테이블의 해당 컬럼에 접근할 수 없어진다.
+따라서 WHERE절 서브 쿼리를 통해, 조건별 집계와 컬럼 조회를 모두 할 수 있도록 쿼리를 작성해야 한다.
+```
+
 
 또한, 이 문제에서는 아래 **개선된 쿼리**로도 조회될 수 있습니다.
 
 **ROW_NUMBER 윈도우 함수**를 사용합니다.
 
-1. 개선된 쿼리 학습
+## 2. 개선된 쿼리 학습
+
 - **개선된 쿼리**
 
     ```sql
@@ -53,14 +61,39 @@ ORDER BY FOOD_TYPE DESC
     ORDER BY FOOD_TYPE DESC;
     ```
 
-
 이 코드를 단계별로 해석하고(주석 사용 등), 위 코드에 비해 갖는 이점을 설명하세요.
+
+**주석**
+```sql
+/** CTE로 새로운 임시 테이블에 저장 **/
+WITH RankedRest AS (
+    SELECT
+        FOOD_TYPE, REST_ID, REST_NAME, FAVORITES, /* 컬럼 추출 */
+        /* FOOD_TYPE별 그룹 내에서 FAVORITES 내림차순 순위 정렬 */
+        /* FAVORITES가 같은 경우 REST_ID를 기준으로 정렬 */
+        ROW_NUMBER() OVER (PARTITION BY FOOD_TYPE ORDER BY FAVORITES DESC, REST_ID) AS rnk
+        FROM REST_INFO /* 기존 테이블 */
+)
+/** 새 테이블에서 불러오기 **/
+SELECT
+    FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
+FROM RankedRest
+WHERE rnk = 1 /* 1위인 식당만 */
+ORDER BY FOOD_TYPE DESC; /* FOOD_TYPE별 정렬 */
+```
+**이점**
+```
+기존 쿼리에 비해 갖는 이점으로는 가독성, 안정성, 확장성을 들 수 있다.
+`WITH`절과 `ROW_NUMBER()` 윈도우 함수를 사용함으로써 서브쿼리와 복잡한 필터링 논리를 사용하는 기존 쿼리에 비해 가독성이 높다.
+또한 FAVORITES가 같은 경우에도 REST_ID 순서로 순위가 매겨지므로, 중복 값을 안정적으로 처리할 수 있다.
+rnk 값을 조정하는 식으로 이후 다른 유사 쿼리에서도 확장하여 사용이 가능하다.
+```
 
 # 2. [조건에 맞는 사원 정보 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/284527)
 
 <!--지시사항을 따르고 <코드 실행>을 누르면 물론 ‘실패’로 뜰 겁니다. 다만 그 때 ‘SELECT 결과보기’를 눌러 세부 사항을 확인해주세요-->
 
-기본 코드
+**기본 코드**
 
 ```sql
 SELECT
@@ -74,6 +107,20 @@ FROM
 
 이때, **RANK(), DENSE_RANK(), ROW_NUMBER() 함수**를 사용하며 결과를 비교하고 해당 함수를 사용하는 경우를 서술해주세요. (함수 사용 예제는 직접 찾아보기)
 
-- 예시
+- **RANK()**
 
-    ![스크린샷 2024-11-05 오후 12.27.07.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/90b65d7a-c625-43c1-9a97-de3f82558ba7/2770811b-bc49-46ac-846b-95778dfd1464/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-11-05_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_12.27.07.png)
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112247.png">
+    </p>
+
+- **DENSE_RANK()**
+
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112328.png">
+    </p>
+
+- **ROW_NUMBER()**
+
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112409.png">
+    </p>
