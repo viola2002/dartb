@@ -64,30 +64,30 @@ MAX 함수는 SQL에서 특정 그룹 내에서 최댓값을 반환하는 집계
 이 코드를 단계별로 해석하고(주석 사용 등), 위 코드에 비해 갖는 이점을 설명하세요.
 
 - **주석**
-```sql
-/** CTE로 새로운 임시 테이블에 저장 **/
-WITH RankedRest AS (
+    ```sql
+    /** CTE로 새로운 임시 테이블에 저장 **/
+    WITH RankedRest AS (
+        SELECT
+            FOOD_TYPE, REST_ID, REST_NAME, FAVORITES, /* 컬럼 추출 */
+            /* FOOD_TYPE별 그룹 내에서 FAVORITES 내림차순 순위 정렬 */
+            /* FAVORITES가 같은 경우 REST_ID를 기준으로 정렬 */
+            ROW_NUMBER() OVER (PARTITION BY FOOD_TYPE ORDER BY FAVORITES DESC, REST_ID) AS rnk
+            FROM REST_INFO /* 기존 테이블 */
+    )
+    /** 새 테이블에서 불러오기 **/
     SELECT
-        FOOD_TYPE, REST_ID, REST_NAME, FAVORITES, /* 컬럼 추출 */
-        /* FOOD_TYPE별 그룹 내에서 FAVORITES 내림차순 순위 정렬 */
-        /* FAVORITES가 같은 경우 REST_ID를 기준으로 정렬 */
-        ROW_NUMBER() OVER (PARTITION BY FOOD_TYPE ORDER BY FAVORITES DESC, REST_ID) AS rnk
-        FROM REST_INFO /* 기존 테이블 */
-)
-/** 새 테이블에서 불러오기 **/
-SELECT
-    FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
-FROM RankedRest
-WHERE rnk = 1 /* 1위인 식당만 */
-ORDER BY FOOD_TYPE DESC; /* FOOD_TYPE별 정렬 */
-```
+        FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
+    FROM RankedRest
+    WHERE rnk = 1 /* 1위인 식당만 */
+    ORDER BY FOOD_TYPE DESC; /* FOOD_TYPE별 정렬 */
+    ```
 - **이점**
-```
-기존 쿼리에 비해 갖는 이점으로는 가독성, 안정성, 확장성을 들 수 있다.
-`WITH`절과 `ROW_NUMBER()` 윈도우 함수를 사용함으로써 서브쿼리와 복잡한 필터링 논리를 사용하는 기존 쿼리에 비해 가독성이 높다.
-또한 FAVORITES가 같은 경우에도 REST_ID 순서로 순위가 매겨지므로, 중복 값을 안정적으로 처리할 수 있다.
-rnk 값을 조정하는 식으로 이후 다른 유사 쿼리에서도 확장하여 사용이 가능하다.
-```
+    ```
+    기존 쿼리에 비해 갖는 이점으로는 가독성, 안정성, 확장성을 들 수 있다.
+    `WITH`절과 `ROW_NUMBER()` 윈도우 함수를 사용함으로써 서브쿼리와 복잡한 필터링 논리를 사용하는 기존 쿼리에 비해 가독성이 높다.
+    또한 FAVORITES가 같은 경우에도 REST_ID 순서로 순위가 매겨지므로, 중복 값을 안정적으로 처리할 수 있다.
+    rnk 값을 조정하는 식으로 이후 다른 유사 쿼리에서도 확장하여 사용이 가능하다.
+    ```
 
 # 2. [조건에 맞는 사원 정보 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/284527)
 
