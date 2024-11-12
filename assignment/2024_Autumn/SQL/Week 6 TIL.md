@@ -108,29 +108,29 @@ FROM
 이때, **RANK(), DENSE_RANK(), ROW_NUMBER() 함수**를 사용하며 결과를 비교하고 해당 함수를 사용하는 경우를 서술해주세요. (함수 사용 예제는 직접 찾아보기)
 
 - **RANK()**
-    <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112247.png">
-    </p>
     ```
     동일한 값에는 동일한 순위를 부여하지만, 중복 값 뒤에는 순위를 건너뛴다.
     예를 들어, 올림픽 등의 대회에서 공동 순위를 부여하는 경우, 중간 순위가 비워진 상태를 유지하는 것이 의미 있을 때 사용할 수 있다.
     ```
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112247.png">
+    </p>
 
 - **DENSE_RANK()**
-    <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112328.png">
-    </p>
     ```
     동일한 값에 동일한 순위를 부여하고, 다음 순위는 건너뛰지 않는다.
     예를 들어, 연속된 순위를 유지해야 하는 제품 등급을 표시할 때 쓰일 수 있다.
     고객 입장에서는 연속된 순위가 비교하기 쉽고 일관되어 보이기 때문이다.
     ```
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112328.png">
+    </p>
 
 - **ROW_NUMBER()**
-    <p align="center">
-    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112409.png">
-    </p>
     ```
     동일한 값이 있어도 순위를 중복하지 않고, 각 행에 고유한 순위를 부여한다.
     고유한 순서를 보장해야 할 때, 즉 조회수 상위 10개를 선택하고 싶지만 같은 조회수를 가진 영상이 여러 개 있는 경우 등을 예시로 들 수 있다.
     ```
+    <p align="center">
+    <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112409.png">
+    </p>
