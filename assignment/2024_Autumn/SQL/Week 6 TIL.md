@@ -6,7 +6,7 @@
 
 ## 1. 틀린 코드 이유 분석(정답 코드 참고)
 
-- *틀린 코드*
+- **틀린 코드**
 
     ```sql
     SELECT *
@@ -18,7 +18,7 @@
 
 이 코드가 틀린 이유를 찾아내고, 정답 코드와 비교해 정리해주세요.
 
-- *정답 코드*
+- **정답 코드**
 
     ```sql
     SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
@@ -63,7 +63,7 @@ MAX 함수는 SQL에서 특정 그룹 내에서 최댓값을 반환하는 집계
 
 이 코드를 단계별로 해석하고(주석 사용 등), 위 코드에 비해 갖는 이점을 설명하세요.
 
-**주석**
+- **주석**
 ```sql
 /** CTE로 새로운 임시 테이블에 저장 **/
 WITH RankedRest AS (
@@ -81,7 +81,7 @@ FROM RankedRest
 WHERE rnk = 1 /* 1위인 식당만 */
 ORDER BY FOOD_TYPE DESC; /* FOOD_TYPE별 정렬 */
 ```
-**이점**
+- **이점**
 ```
 기존 쿼리에 비해 갖는 이점으로는 가독성, 안정성, 확장성을 들 수 있다.
 `WITH`절과 `ROW_NUMBER()` 윈도우 함수를 사용함으로써 서브쿼리와 복잡한 필터링 논리를 사용하는 기존 쿼리에 비해 가독성이 높다.
@@ -108,19 +108,29 @@ FROM
 이때, **RANK(), DENSE_RANK(), ROW_NUMBER() 함수**를 사용하며 결과를 비교하고 해당 함수를 사용하는 경우를 서술해주세요. (함수 사용 예제는 직접 찾아보기)
 
 - **RANK()**
-
     <p align="center">
     <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112247.png">
     </p>
+    ```
+    동일한 값에는 동일한 순위를 부여하지만, 중복 값 뒤에는 순위를 건너뛴다.
+    예를 들어, 올림픽 등의 대회에서 공동 순위를 부여하는 경우, 중간 순위가 비워진 상태를 유지하는 것이 의미 있을 때 사용할 수 있다.
+    ```
 
 - **DENSE_RANK()**
-
     <p align="center">
     <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112328.png">
     </p>
+    ```
+    동일한 값에 동일한 순위를 부여하고, 다음 순위는 건너뛰지 않는다.
+    예를 들어, 연속된 순위를 유지해야 하는 제품 등급을 표시할 때 쓰일 수 있다.
+    고객 입장에서는 연속된 순위가 비교하기 쉽고 일관되어 보이기 때문이다.
+    ```
 
 - **ROW_NUMBER()**
-
     <p align="center">
     <img src="https://github.com/viola2002/dartb/blob/main/assignment/2024_Autumn/SQL/screenshots/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-11-12%20112409.png">
     </p>
+    ```
+    동일한 값이 있어도 순위를 중복하지 않고, 각 행에 고유한 순위를 부여한다.
+    고유한 순서를 보장해야 할 때, 즉 조회수 상위 10개를 선택하고 싶지만 같은 조회수를 가진 영상이 여러 개 있는 경우 등을 예시로 들 수 있다.
+    ```
