@@ -8,3 +8,4 @@ scikit-learn
 selenium
 konlpy
 wordcloud
+gensim
