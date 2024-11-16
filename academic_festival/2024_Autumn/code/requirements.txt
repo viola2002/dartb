@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+koreanize_matplotlib
+seaborn
+scikit-learn
+
+selenium
+konlpy
+wordcloud
