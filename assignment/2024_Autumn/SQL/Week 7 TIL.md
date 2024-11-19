@@ -39,7 +39,7 @@ SELECT ANIMAL_ID,
 FROM ANIMAL_INS
 ```
 
-## 문제 4. 아래는 QnA에 올라온 질문입니다. 왜 풀이가 틀렸는지 답해주세요.
+## 4. 아래는 QnA에 올라온 질문입니다. 왜 풀이가 틀렸는지 답해주세요.
 
 [](https://school.programmers.co.kr/questions/80270)
 
