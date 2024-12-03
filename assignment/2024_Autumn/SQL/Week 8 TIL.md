@@ -5,16 +5,148 @@
 예시:
 [[SQLD 모든 것] 26. PIVOT, UNPIVOT절 | SQL 피봇팅 | 아이리포](https://www.youtube.com/watch?v=FINRIH6Bmq0)
 
-```
+**PIVOT**
+- 가시성 있게 보이도록 = 보고서 작성
+- 행을 열로
+- (ORACLE) `PIVOT`절은 내부적으로 *첫 번째 컬럼*에 대한 `GROUP BY` 연산 수행을 포함함
+- (ORACLE) 문법 예시
+    ```SQL
+    SELECT *
+    FROM (
+        SELECT E.JOB, D.DNAME
+        FROM EMP E, DEPT D
+        WHERE E.DEPTNO = D.DEPTNO
+    )
+    PIVOT (
+        COUNT(*) FOR DNAME IN (
+            'ACCOUNTING' AS ACCOUNTING,
+            'RESEARCH' AS RESEARCH,
+            'SALES' AS SALES
+        )
+    );
+    ```
 
-```
+**UNPIVOT**
+- 집계 함수를 사용할 수 있도록 = 통계치 계산
+- 열을 행으로
+- (ORACLE) 문법 예시
+    ```SQL
+    SELECT 계절, 연도, 기온
+    FROM (SELECT * FROM 평균기온)
+    UNPIVOT (
+        기온 FOR 연도 IN (
+            Y2018 AS '2018년',
+            Y2019 AS '2019년',
+            Y2020 AS '2020년',
+            Y2021 AS '2021년',
+            Y2022 AS '2022년'
+        )
+    );
+    ```
 
 ## B. 다음 문제를 풀어주세요.
 
-[Occupations | HackerRank](https://www.hackerrank.com/challenges/occupations/problem)
+문제: [Occupations | HackerRank](https://www.hackerrank.com/challenges/occupations/problem)
 
-```어렵다면 아래 소스를 참고하셔도 좋습니다.```
+어렵다면 아래 소스를 참고하셔도 좋습니다. </br>
 [[SQL] CASE WHEN으로 Pivot Table 만들기(HackerRank - Occupations 문제)](https://techblog-history-younghunjo1.tistory.com/159)
+
+**MySQL**
+- 정답 쿼리
+    ```sql
+    SELECT
+        MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+        MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+        MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+        MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+    FROM (
+        SELECT
+            Name,
+            Occupation,
+            ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS RowNum
+        FROM OCCUPATIONS
+    ) AS Ranked
+    GROUP BY RowNum
+    ORDER BY RowNum;
+    ```
+- 쿼리 해설
+    1. `ROW_NUMBER()`를 이용하여, 각 직업별로 이름에 알파벳 오름차순 순위 부여
+        - 쿼리
+            ```sql
+            SELECT
+                Name,
+                Occupation,
+                ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS RowNum
+            FROM OCCUPATIONS;
+            ```
+        - 출력 예시
+            ```
+            NAME	OCCUPATION	RowNum
+            Eve	Actor	1
+            Jennifer	Actor	2
+            Ketty	Actor	3
+            Samantha	Actor	4
+            Aamina	Doctor	1
+            Julia	Doctor	2
+            Priya	Doctor	3
+            Ashley	Professor	1
+            Belvet	Professor	2
+            Britney	Professor	3
+            ```
+    1. `CASE`문을 사용해, 각 직업에 해당하는 이름을 열로 변환
+        - 쿼리
+            ```sql
+            SELECT
+                CASE WHEN Occupation = 'Doctor' THEN Name END AS Doctor,
+                CASE WHEN Occupation = 'Professor' THEN Name END AS Professor,
+                CASE WHEN Occupation = 'Singer' THEN Name END AS Singer,
+                CASE WHEN Occupation = 'Actor' THEN Name END AS Actor,
+                RowNum
+            FROM (
+                SELECT
+                    Name,
+                    Occupation,
+                    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS RowNum
+                FROM OCCUPATIONS
+            ) AS Ranked;
+            ```
+        - 출력 예시
+            ```
+            Doctor	Professor  	Singer	Actor	RowNum
+            NULL	NULL	NULL	Eve	1
+            NULL	NULL	NULL	Jennifer	2
+            NULL	NULL	NULL	Ketty	3
+            NULL	NULL	NULL	Samantha	4
+            Aamina	NULL	NULL	NULL	1
+            Julia	NULL	NULL	NULL	2
+            Priya	NULL	NULL	NULL	3
+            NULL	Ashley	NULL	NULL	1
+            NULL	Belvet	NULL	NULL	2
+            NULL	Britney	NULL	NULL	3
+            ```
+    1. `MAX()`함수와 `GROUP BY`절을 이용해 열별 데이터 통합
+        - 쿼리
+            ```sql
+            SELECT
+                MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+                MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+                MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+                MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+            FROM (
+                SELECT
+                    Name,
+                    Occupation,
+                    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS RowNum
+                FROM OCCUPATIONS
+            ) AS Ranked
+            GROUP BY RowNum;
+            ```
+        - 왜 `MAX()` 함수인가?
+            ```
+            1. `GROUP BY RowNum`을 수행할 때 `MAX()`함수가 각 열에서 `NULL`이 아닌 값을 선택한다.
+            2. 만약 특정 열에 값이 없으면, `MAX()`함수는 `NULL`을 반환한다.
+            3. 다른 함수를 사용할 수 있지만 `MAX()`함수가 가장 널리 쓰이고 의미가 직관적이라고 한다. (ChatGPT피셜...)
+            ```
 
 # 2. 성능 최적화 기법
 
