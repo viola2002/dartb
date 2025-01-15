@@ -10,6 +10,7 @@ dartb(DArt-B) is one of data analysis societies at Chung-Ang University.
     - [vincentarelbundock 1](https://github.com/vincentarelbundock/Rdatasets/tree/master/csv/datasets)
     - [vincentarelbundock 2](https://github.com/vincentarelbundock/Rdatasets/tree/master/csv/Ecdat)
     - [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+    - [practical-statistics-for-data-scientists](https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data)
 - toy project
     - [UK Road Traffic Collision Dataset](https://www.kaggle.com/datasets/salmankhaliq22/road-traffic-collision-dataset/data)
     - [Water quality](https://www.kaggle.com/datasets/mssmartypants/water-quality)
