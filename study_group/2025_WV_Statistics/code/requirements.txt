@@ -3,8 +3,9 @@ numpy
 matplotlib
 koreanize_matplotlib
 seaborn
-scikit-learn
+scikit-learn==1.5.0
 statsmodels
 
+imbalanced-learn==0.12.0
 pygam
 dmba
