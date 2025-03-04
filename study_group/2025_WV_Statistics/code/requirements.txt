@@ -9,3 +9,5 @@ statsmodels
 imbalanced-learn
 pygam
 dmba
+graphviz
+xgboost
