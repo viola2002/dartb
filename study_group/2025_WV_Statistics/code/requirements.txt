@@ -4,10 +4,13 @@ matplotlib
 koreanize_matplotlib
 seaborn
 scikit-learn
+scipy
 statsmodels
 
-imbalanced-learn
+wquantiles
 pygam
 dmba
+imbalanced-learn
 graphviz
 xgboost
+prince
